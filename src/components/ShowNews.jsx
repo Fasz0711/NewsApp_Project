@@ -26,43 +26,47 @@ export const ShowNews = ({ formValue, addFav }) => {
       <div className="w-full flex flex-row justify-center box-border ">
         <Carousel className="w-6/12 max-w-96 flex flex-row items-center">
           <CarouselContent className="flex items-center">
-            {data.map((article, index) => (
-              <CarouselItem key={index}>
-                <div className="p-1">
-                  <Card className="box-border w-full p-3">
-                    <CardContent>
-                      <div className="flex flex-row w-full justify-between items-center">
-                        <a
-                          className="w-10/12 font-black underline text-2xl text-left mb-3"
-                          href={article.url}
-                        >
-                          {article.title}
-                        </a>
+            {data && data.length > 0 ? (
+              data.map((article, index) => (
+                <CarouselItem key={index}>
+                  <div className="p-1">
+                    <Card className="box-border w-full p-3">
+                      <CardContent>
+                        <div className="flex flex-row w-full justify-between items-center">
+                          <a
+                            className="w-10/12 font-black underline text-2xl text-left mb-3"
+                            href={article.url}
+                          >
+                            {article.title}
+                          </a>
 
-                        <button
-                          className="outline-none"
-                          onClick={() => {
-                            addAndSoonerEvent(article);
-                          }}
-                        >
-                          <Heart size={30} className="hover:fill-red-500 " />
-                        </button>
-                      </div>
-                      <div>
-                        <p className="mb-3 text-justify">
-                          {article.description}
-                        </p>
-                        <img
-                          src={article.urlToImage}
-                          alt={article.title}
-                          className="w-full max-h-40 object-cover rounded-lg"
-                        />
-                      </div>
-                    </CardContent>
-                  </Card>
-                </div>
-              </CarouselItem>
-            ))}
+                          <button
+                            className="outline-none"
+                            onClick={() => {
+                              addAndSoonerEvent(article);
+                            }}
+                          >
+                            <Heart size={30} className="hover:fill-red-500 " />
+                          </button>
+                        </div>
+                        <div>
+                          <p className="mb-3 text-justify">
+                            {article.description}
+                          </p>
+                          <img
+                            src={article.urlToImage}
+                            alt={article.title}
+                            className="w-full max-h-40 object-cover rounded-lg"
+                          />
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
+                </CarouselItem>
+              ))
+            ) : (
+              <p className="ml-5 text-center"> Aun no hay noticias...</p>
+            )}
           </CarouselContent>
           <CarouselPrevious />
           <CarouselNext />
