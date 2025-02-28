@@ -26,7 +26,7 @@ export const NewsContext = ({ children }) => {
         {
           title: New.title,
           description: New.description,
-          image: New.urlToImage,
+          image: New.image,
           url: New.url,
           quantity: 1,
         },

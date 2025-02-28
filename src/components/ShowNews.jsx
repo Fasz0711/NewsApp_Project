@@ -54,7 +54,7 @@ export const ShowNews = ({ formValue, addFav }) => {
                             {article.description}
                           </p>
                           <img
-                            src={article.urlToImage}
+                            src={article.image}
                             alt={article.title}
                             className="w-full max-h-40 object-cover rounded-lg"
                           />
